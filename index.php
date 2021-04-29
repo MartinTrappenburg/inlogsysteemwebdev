@@ -16,10 +16,10 @@
 
 
   <body>
-    <h1>Hello, world!</h1>
+
     <!--banner-->
     <main>
-      <section class="container-fluid">
+      <section class="container-fluid px-0">
         <div class="row">
           <div class="col-12">
             <?php include("./banner.php"); ?>
@@ -28,7 +28,7 @@
       </section>
 
       <!--navbar-->
-      <section class="container-fluid">
+      <section class="container-fluid px-0">
         <div class="row">
           <div class="col-12">
             <?php include("./navbar.php"); ?>
@@ -46,7 +46,7 @@
       </section>
 
       <!--footer-->
-      <section class="container-fluid">
+      <section class="container-fluid px-0 fixed-bottom">
         <div class="row">
           <div class="col-12">
             <?php include("./footer.php"); ?>

@@ -1,1 +1,1 @@
-<img src="./img/music.png" alt="music" class="img-fluid">
+<img src="./img/scream.png" alt="music" class="img-fluid w-100">
