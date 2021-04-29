@@ -1,0 +1,14 @@
+{
+  "name": "musicsite",
+  "version": "1.0.0",
+  "description": "Music Site with a login page for webdev assignments",
+  "main": "app.js",
+  "scripts": {
+    "test": "test3"
+  },
+  "keywords": [
+    "Music"
+  ],
+  "author": "Martin Trappenburg",
+  "license": "ISC"
+}
