@@ -8,7 +8,7 @@
 <div id="navbaralign"  class="bg-dark">
   <nav class="navbar container navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href=""><img src="./img/icon/favicon.ico" height="32" width="32px" alt=""> Music Library v1</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -23,13 +23,13 @@
           <a class="nav-link <?php if ($active == "pricing") {echo "active";} ?>" href="./index.php?content=pricing">Pricing</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle  <?php if ($active == "contact" || $active == "login" || $active == "register") {echo "active";} ?>" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             More
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Contact</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item <?php if ($active == "contact") {echo "active";} ?>" href="./index.php?content=contact">Contact</a>
+            <a class="dropdown-item <?php if ($active == "login") {echo "active";} ?>" href="./index.php?content=login">login</a>
+            <a class="dropdown-item <?php if ($active == "register") {echo "active";} ?>" href="./index.php?content=register">Register</a>
           </div>
         </li>
       </ul>
