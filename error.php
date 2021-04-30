@@ -14,7 +14,24 @@
           </div>';
           header("Refresh: 3; ./index.php?content=register");
         break;
-        
+        case "register-error" : 
+            echo '<div class="alert alert-danger mt-5" role="alert">
+            Something went wrong, contact your administrator.
+          </div>';
+          header("Refresh: 3; ./index.php?content=register");
+        break;
+        case "register-success" : 
+            echo '<div class="alert alert-success" role="alert">
+            Succesfully Registered. You will receive a confirmation e-mail soon!
+          </div>';
+          header("Refresh: 3; ./index.php?content=login");
+        break;
+        case "hacker-alert" : 
+            echo '<div class="alert alert-danger mt-5" role="alert">
+            Nice try bitch
+          </div>';
+          header("Refresh: 3; ./index.php?content=register");
+        break;
         default:
             header("location: ./index.php?content=home");
         break;
