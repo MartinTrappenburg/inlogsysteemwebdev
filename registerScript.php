@@ -13,8 +13,13 @@ if (empty($_POST["email"])) {
 if (mysqli_num_rows($results)) {
     header("LOCATION: ./index.php?content=error&alert=emailexists");
 } else {
-    $password = "testwachtwoord";
+    $mut = microtime();
+    $time = explode("", $mut);
+    $password = $time[1] * $time[0] * 1000000;
     $password_hash = password_hash($password, PASSWORD_BCRYPT);
+    $onehour = mktime(1, 0,0, 1, 1, 1970);
+    $d = date("d-m-Y", ($time[1] + $onehour));
+    $t = date("H:i:s", ($time[1] + $onehour));
     $sql = "INSERT INTO `register` (`id`, `email`, `password`, `userrole`) VALUES (NULL, '$emailclean', '$password_hash', 'user')";
 
     if (mysqli_query($conn, $sql)) {

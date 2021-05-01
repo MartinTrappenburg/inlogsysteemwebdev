@@ -52,6 +52,18 @@ switch ($alert) {
       </div>';
     header("Refresh: 3; ./index.php?content=register");
     break;
+    case "password-changed":
+      echo '<div class="alert alert-success mt-5" role="alert">
+          Password changed successfully
+        </div>';
+      header("Refresh: 3; ./index.php?content=home");
+      break;
+      case "password-change-failed":
+        echo '<div class="alert alert-danger mt-5" role="alert">
+            Unable to update password.
+          </div>';
+        header("Refresh: 3; ./index.php?content=activate&id=$id&pwh=$pwh");
+        break;
   default:
     header("location: ./index.php?content=home");
     break;
