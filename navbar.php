@@ -22,6 +22,20 @@
         <li class="nav-item">
           <a class="nav-link <?php if ($active == "pricing") {echo "active";} ?>" href="./index.php?content=pricing">Pricing</a>
         </li>
+        <?php
+      	  if (isset($_SESSION["id"])) {
+            echo '<li class="nav-item">
+                    <a class="nav-link" href="./index.php?content=logout">logout</a>
+                  </li>';
+          } else {
+            echo '<li class="nav-item">
+            <a class="nav-link" href="./index.php?content=login">login</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="./index.php?content=register">register</a>
+        </li>';
+          }
+        ?>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle  <?php if ($active == "contact" || $active == "login" || $active == "register") {echo "active";} ?>" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             More

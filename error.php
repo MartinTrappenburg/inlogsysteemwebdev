@@ -89,6 +89,12 @@ switch ($alert) {
             </div>';
           header("Refresh: 3; ./index.php?content=login");
           break;  
+          case "logout":
+            echo '<div class="alert alert-Success mt-5" role="alert">
+                Logged out successfully.
+              </div>';
+            header("Refresh: 3; ./index.php?content=home");
+            break;  
   default:
     header("location: ./index.php?content=home");
     break;
