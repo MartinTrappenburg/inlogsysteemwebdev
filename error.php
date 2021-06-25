@@ -2,6 +2,7 @@
 $alert = (isset($_GET["alert"])) ? $_GET["alert"] : "default";
 $id = (isset($_GET["id"])) ? $_GET["id"] : "";
 $pwh = (isset($_GET["pwh"])) ? $_GET["pwh"] : "";
+$email = (isset($_GET["email"]))? $_GET["email"]: "";
 
 switch ($alert) {
   case "no-email":
@@ -70,6 +71,24 @@ switch ($alert) {
           </div>';
         header("Refresh: 3; ./index.php?content=home");
         break;
+        case "loginform-empty":
+          echo '<div class="alert alert-danger mt-5" role="alert">
+              THE FIELDS ARE EMPTY. FILL IT IN AGAIN.
+            </div>';
+          header("Refresh: 3; ./index.php?content=login");
+          break;  
+        case "email-unknown":
+          echo '<div class="alert alert-danger mt-5" role="alert">
+              Unknown login credentials.
+            </div>';
+          header("Refresh: 3; ./index.php?content=login");
+          break;  
+          case "not-active":
+          echo '<div class="alert alert-danger mt-5" role="alert">
+              Your account is inactive. Check your e-mail' . $email . ' for the activation link
+            </div>';
+          header("Refresh: 3; ./index.php?content=login");
+          break;  
   default:
     header("location: ./index.php?content=home");
     break;

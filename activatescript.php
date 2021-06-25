@@ -22,13 +22,13 @@
                 $newpassword = password_hash($passwordcheck, PASSWORD_BCRYPT);
                 $sql = "UPDATE `register` SET `password` = '$newpassword', `activated` = 1 WHERE `id` = $id";
                 if (mysqli_query($conn, $sql)) {
-                    header("LOCATION ./index.php?content=error&alert=password-changed");
+                    header("LOCATION: ./index.php?content=error&alert=password-changed");
                 } else {
-                    header("LOCATION ./index.php?content=error&alert=password-change-failed&id=$id&pwh=$pwh");
+                    header("LOCATION: ./index.php?content=error&alert=password-change-failed&id=$id&pwh=$pwh");
                 }
             }
         } else {
-            header("LOCATION: ./index.php?content=error&alert=no-id-pwh-match");
+            header("LOCATION: ./index.php?content=error&alert=no-id-pwh-match&email=$email");
         }
     }
 ?>
