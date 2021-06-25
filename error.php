@@ -64,6 +64,12 @@ switch ($alert) {
           </div>';
         header("Refresh: 3; ./index.php?content=activate&id=$id&pwh=$pwh");
         break;
+      case "account-already-active":
+        echo '<div class="alert alert-danger mt-5" role="alert">
+            Account has already been activated.
+          </div>';
+        header("Refresh: 3; ./index.php?content=home");
+        break;
   default:
     header("location: ./index.php?content=home");
     break;

@@ -20,7 +20,7 @@ if (mysqli_num_rows($results)) {
     $onehour = mktime(1, 0,0, 1, 1, 1970);
     $d = date("d-m-Y", ($time[1] + $onehour));
     $t = date("H:i:s", ($time[1] + $onehour));
-    $sql = "INSERT INTO `register` (`id`, `email`, `password`, `userrole`) VALUES (NULL, '$emailclean', '$password_hash', 'user')";
+    $sql = "INSERT INTO `register` (`id`, `email`, `password`, `userrole`, `activated`) VALUES (NULL, '$emailclean', '$password_hash', 'user', 0)";
 
     if (mysqli_query($conn, $sql)) {
         $id = mysqli_insert_id($conn);
@@ -47,7 +47,7 @@ if (mysqli_num_rows($results)) {
         $headers = "MIME-Version: 1.0\r\n";
         $headers .= "Content-type: text/html; charset=UTF-8\r\n";
         $headers .= "FROM: admin@musicsystem.com\r\n";
-        $headers .= "Cc: moderator@musicysystem.com";
+        $headers .= "Cc: moderator@musicsystem.com";
         mail($to, $subject, $message, $headers);
         header("LOCATION: ./index.php?content=error&alert=register-success");
     } else {
