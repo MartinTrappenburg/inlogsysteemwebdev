@@ -49,7 +49,7 @@ if (mysqli_num_rows($results)) {
         $headers .= "FROM: admin@musicsystem.com\r\n";
         $headers .= "Cc: moderator@musicsystem.com";
         mail($to, $subject, $message, $headers);
-        header("LOCATION: ./index.php?content=error&alert=register-success");
+        header("Location: ./index.php?content=error&alert=register-success");
     } else {
         header("LOCATION: ./index.php?content=error&alert=register-error");
     }

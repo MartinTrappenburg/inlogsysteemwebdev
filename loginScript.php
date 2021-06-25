@@ -11,16 +11,33 @@
         $sql = "SELECT * FROM `register` WHERE `email`= '$email'";
         $result = mysqli_query($conn, $sql);
         if (!mysqli_num_rows($result)) {
-            # code...
             header("Location: ./index.php?content=error&alert=email-unknown");
         } else {
-            # code...
             $record = mysqli_fetch_assoc($result);
-            if (!$record["Activated"]) {
-                # code...
+            if (!$record["activated"]) {
                 header("Location: ./index.php?content=error&alert=not-active");
+            } elseif (!password_verify($password, $record["password"])) {
+                header("Location: ./index.php?content=error&alert=email-unknown");
             } else {
-                # code...
+                $_SESSION["id"] = $record["id"];
+                $_SESSION["userrole"] = $record["userrole"];
+                switch($record["userrole"]) {
+                    case 'user' :
+                        header("Location: ./index.php?content=chome");
+                    break;
+
+                    case 'admin' :
+                        header("Location: ./index.php?content=ahome");
+                    break;
+
+                    case 'moderator' :
+                        header("Location: ./index.php?content=mhome");
+                    break;
+
+                    case 'root' :
+                        header("Location: ./index.php?content=rhome");
+                    break;
+                }
             }
             
         }
