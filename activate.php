@@ -9,7 +9,7 @@
             <form action="./index.php?content=activatescript" method="post">
                 <div class="mb-3">
                     <label for="inputPassword" class="form-label">New Password</label>
-                    <input name="password" type="password" class="form-control" id="inputPassword" aria-describedby="passwordHelp">
+                    <input name="password" type="password" class="form-control" id="inputPassword" aria-describedby="passwordHelp" autofocus>
                     <div id="passwordHelp" class="form-text">Choose a strong password.</div>
                 </div>
                 <div class="mb-3">

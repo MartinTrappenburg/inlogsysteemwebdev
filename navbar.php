@@ -20,10 +20,44 @@
           <a class="nav-link <?php if ($active == "genres") {echo "active";} ?>" href="./index.php?content=genres">Genres</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?php if ($active == "pricing") {echo "active";} ?>" href="./index.php?content=pricing">Pricing</a>
+          <a class="nav-link <?php if ($active == "moshpit") {echo "active";} ?>" href="./index.php?content=moshpit ">Moshpit calculator(BMI)</a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle  <?php if ($active == "contact" || $active == "login" || $active == "register") {echo "active";} ?>" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            More
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item <?php if ($active == "contact") {echo "active";} ?>" href="./index.php?content=contact">Contact</a>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
         <?php
       	  if (isset($_SESSION["id"])) {
+            switch ($_SESSION["userrole"]) {
+              case 'user':
+                
+              break;
+              case 'admin':
+                echo 'li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle'; echo (in_array($active, ["a-user", "a-reset_password"])) ? "active" : "";  echo '" href="#" id="navbarDropdownMenuLinkRight" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  admin
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkRight">
+                  <a class="dropdown-item'; if ($active == "a-user") {echo "active";} echo '" href="./index.php?content=a-user">users</a>
+                  <a class="dropdown-item'; if ($active == "a-reset_password") {echo "active";} echo '" href="./index.php?content=a-reset_password">reset password</a>
+                </div>';
+              break;
+              case 'moderator':
+                # code...
+              break;
+              case 'root':
+                # code...
+              break;
+              default:
+              break;
+            }
             echo '<li class="nav-item">
                     <a class="nav-link" href="./index.php?content=logout">logout</a>
                   </li>';
@@ -36,16 +70,6 @@
         </li>';
           }
         ?>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle  <?php if ($active == "contact" || $active == "login" || $active == "register") {echo "active";} ?>" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            More
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item <?php if ($active == "contact") {echo "active";} ?>" href="./index.php?content=contact">Contact</a>
-            <a class="dropdown-item <?php if ($active == "login") {echo "active";} ?>" href="./index.php?content=login">login</a>
-            <a class="dropdown-item <?php if ($active == "register") {echo "active";} ?>" href="./index.php?content=register">Register</a>
-          </div>
-        </li>
       </ul>
     </div>
   </nav>

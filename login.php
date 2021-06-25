@@ -5,7 +5,7 @@
             <form action="./index.php?content=loginScript" method="post">
                 <div class="mb-3">
                     <label for="insertEmail" class="form-label">Email address</label>
-                    <input name="email" type="email" class="form-control" id="insertEmail" aria-describedby="emailHelp">
+                    <input name="email" type="email" class="form-control" id="insertEmail" aria-describedby="emailHelp" autofocus>
                     <div id="emailHelp" class="form-text">Your E-mail is stored securely and won't be shared.</div>
                 </div>
                 <div class="mb-3">
